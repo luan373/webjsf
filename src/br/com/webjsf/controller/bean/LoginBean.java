@@ -3,11 +3,13 @@ package br.com.webjsf.controller.bean;
 import java.sql.SQLException;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import br.com.webjsf.model.dao.LoginDao;
 import br.com.webjsf.model.entity.Login;
 
-@ManagedBean
+@ManagedBean(name="loginBean")
+@ViewScoped
 public class LoginBean {
 
 	private LoginDao loginDao = null;

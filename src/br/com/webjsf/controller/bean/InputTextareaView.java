@@ -9,10 +9,6 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class InputTextareaView {
 	
-	public void caralho(){
-		
-	}
-	
 	public List<String> completeArea(String query) {
 
 		List<String> results = new ArrayList<String>();

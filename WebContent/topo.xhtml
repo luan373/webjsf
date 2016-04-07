@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:form>
+		<p:growl id="messages" showDetail="true" />
+
+		<p:menubar autoDisplay="false">
+			<p:submenu label="Paciente" icon="ui-icon-document">
+				<p:menuitem value="Cadastrar" url="#" />
+				<p:separator />
+				<p:menuitem value="Pesquisar" url="#" />
+			</p:submenu>
+			<p:submenu label="Médico" icon="icon-user-md">
+				<p:menuitem value="Cadastrar" url="#" />
+				<p:separator />
+				<p:menuitem value="Pesquisar" url="#" />
+			</p:submenu>			
+			<p:menuitem value="Quit" url="login.xhtml" />
+		</p:menubar>
+	</h:form>
+</ui:composition>
