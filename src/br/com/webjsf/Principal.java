@@ -1,17 +1,14 @@
 package br.com.webjsf;
 
+import java.sql.Date;
 import java.sql.SQLException;
-
-import br.com.webjsf.model.dao.LoginDao;
-import br.com.webjsf.model.entity.Login;
+import java.text.SimpleDateFormat;
 
 public class Principal {
 	public static void main(String[] args) throws SQLException {
-		String login = "admin";
-		LoginDao negocio = new LoginDao();
-		Login osh = negocio.recuperarLogin(login);
-		
-		System.out.println(osh);
+		Date data = new Date(System.currentTimeMillis());
+		String dt = new SimpleDateFormat("dd/MM/yyyy").format(data);
+		System.out.println(dt);
 	}
 
 }

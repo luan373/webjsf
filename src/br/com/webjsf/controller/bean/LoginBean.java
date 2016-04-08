@@ -2,7 +2,7 @@ package br.com.webjsf.controller.bean;
 
 import java.sql.SQLException;
 
-import javax.faces.bean.ManagedBean;
+import javax.faces.bean.*;
 import javax.faces.bean.ViewScoped;
 
 import br.com.webjsf.model.dao.LoginDao;

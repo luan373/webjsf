@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputScript library="jQuery" name="/js/jquery-1.11.1.js"
+		target="body" />
+	<title><ui:insert name="titulo">Marcacao de Consultas</ui:insert></title>
+</h:head>
+<h:body>
+	<ui:insert name="topo">
+		<ui:include src="/topo.xhtml" />
+	</ui:insert>
+	<h:form>
+		<p:panel header="Cadastrar Paciente">
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="idPaciente">id: </p:outputLabel>
+				<p:inputText id="idPaciente" value="#{pacienteBean.idPaciente}" />
+			
+				<p:outputLabel for="nomePaciente">Nome: </p:outputLabel>
+				<p:inputText id="nomePaciente" value="#{pacienteBean.nome}" />
+
+				<p:outputLabel for="telefone">Telefone: </p:outputLabel>
+				<p:inputMask id="telefone" mask="(99) 9999-9999"
+					value="#{pacienteBean.telefone}" />
+
+				<p:outputLabel for="email">E-mail: </p:outputLabel>
+				<p:inputText id="email" value="#{pacienteBean.email}" />
+
+				<p:outputLabel for="diagnostico">Diagnóstico: </p:outputLabel>
+				<p:inputText id="diagnostico" value="#{pacienteBean.diagnostico}" />
+
+				<p:commandButton id="btnPaciente" value="Salvar"
+					icon="ui-icon-star" action="#{pacienteBean.validaPaciente}"
+					ajax="false" />
+
+				<p:outputLabel value="#{pacienteBean.validacao}" />
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>
