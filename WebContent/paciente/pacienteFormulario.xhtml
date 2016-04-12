@@ -13,10 +13,10 @@
 		<ui:include src="/topo.xhtml" />
 	</ui:insert>
 	<h:form>
-		<p:panel header="Cadastrar Paciente">
+		<p:panel header="#{pacienteBean.addTituloPagina()}">
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel for="idPaciente">id: </p:outputLabel>
-				<p:inputText id="idPaciente" value="#{pacienteBean.idPaciente}" />
+				<p:inputText id="idPaciente" disabled="true" value="#{pacienteBean.idPaciente}" />
 			
 				<p:outputLabel for="nomePaciente">Nome: </p:outputLabel>
 				<p:inputText id="nomePaciente" value="#{pacienteBean.nome}" />
@@ -29,7 +29,7 @@
 				<p:inputText id="email" value="#{pacienteBean.email}" />
 
 				<p:outputLabel for="diagnostico">Diagnóstico: </p:outputLabel>
-				<p:inputText id="diagnostico" value="#{pacienteBean.diagnostico}" />
+				<p:inputTextarea id="diagnostico" value="#{pacienteBean.diagnostico}" />
 
 				<p:commandButton id="btnPaciente" value="Salvar"
 					icon="ui-icon-star" action="#{pacienteBean.validaPaciente}"

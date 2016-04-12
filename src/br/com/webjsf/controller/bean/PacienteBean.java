@@ -143,5 +143,12 @@ public class PacienteBean {
 		
 		
 	}
+	
+	public String addTituloPagina() {
+		if (idPaciente == null || idPaciente == "") {
+			return "Cadastrar Paciente";
+		}		
+		return "Alterar Paciente";
+	}
 		
 }
