@@ -27,7 +27,7 @@ public class PacienteDao extends AbastractDao {
 	public void alterar(Paciente paciente) throws SQLException {
 		comandoSql = this.conexao.prepareStatement("UPDATE public.paciente SET nome='" + paciente.getNome()
 				+ "', telefone=" + paciente.getTelefone() + " , email='" + paciente.getEmail() + "', diagnostico= '"
-				+ paciente.getDiagnostico() + "', WHERE " + paciente.getIdPaciente() + ";");
+				+ paciente.getDiagnostico() + "' WHERE " + paciente.getIdPaciente() + ";");
 
 		comandoSql.execute();
 	}

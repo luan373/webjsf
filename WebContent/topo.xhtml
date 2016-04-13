@@ -3,20 +3,24 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title><ui:insert name="titulo">Marcação de consultas</ui:insert></title>
+	</h:head>
 	<h:form>
 		<p:growl id="messages" showDetail="true" />
 
 		<p:menubar autoDisplay="false">
 			<p:submenu label="Paciente" icon="ui-icon-document">
-				<p:menuitem value="Cadastrar" url="/paciente/pacienteFormulario.xhtml" />
+				<p:menuitem value="Cadastrar"
+					url="/paciente/pacienteFormulario.xhtml" />
 				<p:separator />
 				<p:menuitem value="Pesquisar" url="/paciente/pacientePesquisa.xhtml" />
 			</p:submenu>
 			<p:submenu label="Médico" icon="icon-user-md">
-				<p:menuitem value="Cadastrar" url="#" />
+				<p:menuitem value="Cadastrar" url="/medico/medicoFormulario.xhtml" />
 				<p:separator />
-				<p:menuitem value="Pesquisar" url="#" />
-			</p:submenu>			
+				<p:menuitem value="Pesquisar" url="/medico/medicoPesquisa.xhtml" />
+			</p:submenu>
 			<p:menuitem value="Quit" url="/login.xhtml" />
 		</p:menubar>
 	</h:form>

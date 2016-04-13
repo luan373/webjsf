@@ -7,21 +7,23 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import br.com.webjsf.model.dao.PacienteDao;
 import br.com.webjsf.model.entity.Paciente;
 
 @ManagedBean(name = "pacienteBean")
-@RequestScoped
+// @RequestScoped
+@SessionScoped
 public class PacienteBean {
 
 	private PacienteDao pacienteDao = null;
 
-	public PacienteBean(){
+	public PacienteBean() {
 		this.pacienteDao = new PacienteDao();
 	}
-	
-	@ManagedProperty(value="#{param.idPaciente}")
+
+	// @ManagedProperty(value="#{param.idPaciente}")
 	private String idPaciente;
 	private String nome;
 	private String telefone;
@@ -95,7 +97,7 @@ public class PacienteBean {
 	public void setValidacao(String validacao) {
 		this.validacao = validacao;
 	}
-	
+
 	public List<Paciente> getListaPaciente() {
 		return listaPaciente;
 	}
@@ -112,43 +114,47 @@ public class PacienteBean {
 				setValidacao("Preencha os campos obrigatórios");
 			} else {
 				paciente.setNome(nome);
-				//paciente.setTelefone(Integer.parseInt(telefone));
+				// paciente.setTelefone(Integer.parseInt(telefone));
 				paciente.setTelefone(33736517);
 				paciente.setEmail(email);
 				paciente.setDiagnostico(diagnostico);
 
-				this.pacienteDao.inserir(paciente);
+				if (idPaciente.equals(null)) {
+					this.pacienteDao.inserir(paciente);
+				} else {
+					paciente.setIdPaciente(Integer.parseInt(idPaciente));
+					this.pacienteDao.alterar(paciente);
+				}
+
 			}
 		} catch (Exception e) {
 			e.getMessage();
 		}
 
 		return validacao;
-	}	
-	
+	}
+
 	public void pesquisaPaciente() throws SQLException {
 		Paciente paciente = new Paciente();
 		List<Paciente> pacienteLista = new ArrayList<Paciente>();
-		
+
 		paciente.setNome(nome);
 		paciente.setEmail(email);
-		
+
 		pacienteLista = this.pacienteDao.pesquisar(paciente);
-		
-		this.listaPaciente =  pacienteLista;		
+
+		this.listaPaciente = pacienteLista;
 	}
-	
-	public String direcionaPagina(){
+
+	public String direcionaPagina() {
 		return "pacienteFormulario";
-		
-		
 	}
-	
-	public String addTituloPagina() {
+
+	public String getaddTituloPagina() {
 		if (idPaciente == null || idPaciente == "") {
 			return "Cadastrar Paciente";
-		}		
+		}
 		return "Alterar Paciente";
 	}
-		
+
 }

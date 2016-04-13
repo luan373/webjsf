@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -5,15 +6,14 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<h:outputScript library="jQuery" name="/js/jquery-1.11.1.js"
-		target="body" />
-	<title><ui:insert name="titulo">Marcacao de Consultas</ui:insert></title>
+		target="body" />	
 </h:head>
 <h:body>
 	<ui:insert name="topo">
 		<ui:include src="/topo.xhtml" />
 	</ui:insert>
 	<h:form>
-		<p:panel header="#{pacienteBean.addTituloPagina()}">
+		<p:panel header="#{pacienteBean.addTituloPagina}">
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel for="idPaciente">id: </p:outputLabel>
 				<p:inputText id="idPaciente" disabled="true"

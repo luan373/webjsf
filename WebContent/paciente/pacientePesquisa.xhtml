@@ -6,7 +6,6 @@
 <h:head>
 	<h:outputScript library="jQuery" name="/js/jquery-1.11.1.js"
 		target="body" />
-	<title><ui:insert name="titulo">Marcacao de Consultas</ui:insert></title>
 </h:head>
 <h:body>
 	<ui:insert name="topo">
@@ -48,20 +47,13 @@
 				<h:outputText value="#{paciente.registro}" />
 			</p:column>
 			<p:column headerText="Ações">
-				<p:commandLink value="Alterar" id="btnAlterar"
-					action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk" />
-					 
+				<p:commandButton value="Alterar" id="btnAlterar"
+					action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk">
+					<f:setPropertyActionListener value="#{paciente.idPaciente}"
+						target="#{pacienteBean.idPaciente}" />
+				</p:commandButton>
 			</p:column>
-			
-			<p:column headerText="Ações2">
-				
 
-				<h:outputLink value="/webjsf/paciente/pacienteFormulario.xhtml">
-					<h:outputText value="Editar" />
-					<f:param name="idPaciente" value="#{paciente.idPaciente}" />
-				</h:outputLink>
-			</p:column>
-			
 		</p:dataTable>
 	</f:view>
 </h:body>
