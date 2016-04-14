@@ -16,7 +16,7 @@ public class MedicoDao extends AbastractDao {
 		comandoSql = this.conexao
 				.prepareStatement("INSERT INTO public.medico(nome, crm, especialidade, email, telefone) VALUES ('"
 						+ medico.getNome() + "', '" + medico.getCrm() + "', '" + medico.getEspecialidade() + "', '"
-						+ medico.getEmail() + "', " + medico.getTelefone() + ");");
+						+ medico.getEmail() + "', '" + medico.getTelefone() + "');");
 
 		comandoSql.execute();
 	}
@@ -52,7 +52,7 @@ public class MedicoDao extends AbastractDao {
 			medicoRetorno.setCrm(resultadoSql.getString("crm"));
 			medicoRetorno.setEspecialidade(resultadoSql.getString("especialidade"));
 			medicoRetorno.setEmail(resultadoSql.getString("email"));
-			medicoRetorno.setTelefone(resultadoSql.getInt("telefone"));
+			medicoRetorno.setTelefone(resultadoSql.getString("telefone"));
 		}
 
 		return medicoRetorno;
@@ -81,12 +81,12 @@ public class MedicoDao extends AbastractDao {
 		while (resultadoSql.next()){
 			Medico medicoRetorno = new Medico();
 			
-			medicoRetorno.setIdMedico(resultadoSql.getLong("idMedico"));
+			medicoRetorno.setIdMedico(resultadoSql.getLong("id_Medico"));
 			medicoRetorno.setNome(resultadoSql.getString("nome"));
 			medicoRetorno.setCrm(resultadoSql.getString("crm"));
 			medicoRetorno.setEspecialidade(resultadoSql.getString("especialidade"));
 			medicoRetorno.setEmail(resultadoSql.getString("email"));
-			medicoRetorno.setTelefone(resultadoSql.getInt("telefone"));
+			medicoRetorno.setTelefone(resultadoSql.getString("telefone"));
 			
 			listaRetorno.add(medicoRetorno);
 		}

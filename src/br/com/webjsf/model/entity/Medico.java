@@ -6,7 +6,7 @@ public class Medico {
 	private String crm;
 	private String especialidade;
 	private String email;
-	private int telefone;
+	private String telefone;
 
 	public long getIdMedico() {
 		return idMedico;
@@ -48,11 +48,11 @@ public class Medico {
 		this.email = email;
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

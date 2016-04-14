@@ -3,7 +3,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
 	<h:outputScript library="jQuery" name="/js/jquery-1.11.1.js"
 		target="body" />
@@ -13,7 +14,11 @@
 		<ui:include src="/topo.xhtml" />
 	</ui:insert>
 	<h:form>
-		<p:panel header="#{medicoBean.TituloPagina}">
+		<p:panel header="#{medicoBean.tituloPagina}">
+			<f:metadata>
+				<f:event type="preRenderView"
+					listener="#{medicoBean.recuperaMedico}" />
+			</f:metadata>
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel for="idMedico">id: </p:outputLabel>
 				<p:inputText id="idMedico" disabled="true"
@@ -37,6 +42,12 @@
 
 				<p:commandButton id="btnMedico" value="Salvar" icon="ui-icon-star"
 					action="#{medicoBean.validaMedico}" ajax="false" />
+
+				<c:if test="#{medicoBean.idMedico != null }">
+					<p:commandButton id="btnExcluir" value="Excluir"
+						icon="ui-icon-star" action="#{medicoBean.excluiMedico}"
+						ajax="false" />
+				</c:if>
 
 				<p:outputLabel value="#{medicoBean.validacao}" />
 			</h:panelGrid>

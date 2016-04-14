@@ -5,7 +5,7 @@ import java.util.Date;
 public class Paciente {
 	private long idPaciente;
 	private String nome;
-	private int telefone;
+	private String telefone;
 	private String email;
 	private String diagnostico;
 	private Date registro;
@@ -26,11 +26,11 @@ public class Paciente {
 		this.nome = nome;
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

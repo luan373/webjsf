@@ -11,6 +11,7 @@
 	<ui:insert name="topo">
 		<ui:include src="/topo.xhtml" />
 	</ui:insert>
+	<f:event listener="#{pacienteBean.deixaNulo}" type="preRenderView" />
 	<h:form>
 		<p:panel header="Pesquisar Paciente">
 			<h:panelGrid columns="2" cellpadding="5">
@@ -29,32 +30,32 @@
 		</p:panel>
 
 	</h:form>
-	<f:view>
-		<p:dataTable var="paciente" value="#{pacienteBean.listaPaciente}">
-			<p:column headerText="Id do Paciente">
-				<h:outputText value="#{paciente.idPaciente}" />
-			</p:column>
-			<p:column headerText="Nome do Paciente">
-				<h:outputText value="#{paciente.nome}" />
-			</p:column>
-			<p:column headerText="Telefone">
-				<h:outputText value="#{paciente.telefone}" />
-			</p:column>
-			<p:column headerText="E-mail">
-				<h:outputText value="#{paciente.email}" />
-			</p:column>
-			<p:column headerText="Registro">
-				<h:outputText value="#{paciente.registro}" />
-			</p:column>
-			<p:column headerText="Ações">
-				<p:commandButton value="Alterar" id="btnAlterar"
-					action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk">
-					<f:setPropertyActionListener value="#{paciente.idPaciente}"
-						target="#{pacienteBean.idPaciente}" />
-				</p:commandButton>
-			</p:column>
+	<p:dataTable var="paciente" value="#{pacienteBean.listaPaciente}">
+		<p:column headerText="Id do Paciente">
+			<h:outputText value="#{paciente.idPaciente}" />
+		</p:column>
+		<p:column headerText="Nome do Paciente">
+			<h:outputText value="#{paciente.nome}" />
+		</p:column>
+		<p:column headerText="Telefone">
+			<h:outputText value="#{paciente.telefone}" />
+		</p:column>
+		<p:column headerText="E-mail">
+			<h:outputText value="#{paciente.email}" />
+		</p:column>
+		<p:column headerText="Registro">
+			<h:outputText value="#{paciente.registro}">
+				<f:convertDateTime pattern="dd-MM-yyyy" />
+			</h:outputText>
+		</p:column>
+		<p:column headerText="Ações">
+			<p:commandButton value="Alterar" id="btnAlterar"
+				action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk">
+				<f:setPropertyActionListener value="#{paciente.idPaciente}"
+					target="#{pacienteBean.idPaciente}" />
+			</p:commandButton>
+		</p:column>
 
-		</p:dataTable>
-	</f:view>
+	</p:dataTable>
 </h:body>
 </html>

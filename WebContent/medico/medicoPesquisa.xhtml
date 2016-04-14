@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputScript library="jQuery" name="/js/jquery-1.11.1.js"
+		target="body" />
+</h:head>
+<h:body>
+	<ui:insert name="topo">
+		<ui:include src="/topo.xhtml" />
+	</ui:insert>
+	<f:event listener="#{medicoBean.deixaNulo}" type="preRenderView" />
+	<h:form>
+		<p:panel header="Pesquisar Médico">
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="nomeMedico">Nome: </p:outputLabel>
+				<p:inputText id="nomeMedico" value="#{medicoBean.nome}" />
+
+				<p:outputLabel for="especialidade">Especialidade: </p:outputLabel>
+				<p:inputText id="especialidade" value="#{medicoBean.especialidade}" />
+
+				<p:commandButton id="btnPesquisar" value="Pesquisar"
+					icon="ui-icon-star" action="#{medicoBean.pesquisaMedico}"
+					ajax="false" />
+
+
+			</h:panelGrid>
+		</p:panel>
+
+	</h:form>
+	<p:dataTable var="medico" value="#{medicoBean.listaMedico}">
+		<p:column headerText="Id do Medico">
+			<h:outputText value="#{medico.idMedico}" />
+		</p:column>
+		<p:column headerText="Nome do Médico">
+			<h:outputText value="#{medico.nome}" />
+		</p:column>
+		<p:column headerText="Telefone">
+			<h:outputText value="#{medico.telefone}" />
+		</p:column>
+		<p:column headerText="E-mail">
+			<h:outputText value="#{medico.email}" />
+		</p:column>
+		<p:column headerText="CRM">
+			<h:outputText value="#{medico.crm}" />
+		</p:column>
+		<p:column headerText="Especialidade">
+			<h:outputText value="#{medico.especialidade}" />
+		</p:column>
+		<p:column headerText="Ações">
+			<p:commandButton value="Alterar" id="btnAlterar" action="#{medicoBean.direcionaPagina}" icon="ui-icon-disk">
+				<f:setPropertyActionListener value="#{medico.idMedico}" target="#{medicoBean.idMedico}" />
+			</p:commandButton>
+		</p:column>
+	</p:dataTable>
+</h:body>
+</html>

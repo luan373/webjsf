@@ -1,20 +1,21 @@
 package br.com.webjsf.controller.bean;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 import br.com.webjsf.model.dao.PacienteDao;
 import br.com.webjsf.model.entity.Paciente;
 
 @ManagedBean(name = "pacienteBean")
-// @RequestScoped
-@SessionScoped
 public class PacienteBean {
 
 	private PacienteDao pacienteDao = null;
@@ -114,16 +115,21 @@ public class PacienteBean {
 				setValidacao("Preencha os campos obrigatórios");
 			} else {
 				paciente.setNome(nome);
-				// paciente.setTelefone(Integer.parseInt(telefone));
-				paciente.setTelefone(33736517);
+				telefone = telefone.replace("(", "").replace(")", "").replace(" ", "").replace("-", "");
+				paciente.setTelefone(telefone);
+				// paciente.setTelefone(33736517);
 				paciente.setEmail(email);
 				paciente.setDiagnostico(diagnostico);
 
-				if (idPaciente.equals(null)) {
+				if (idPaciente == null) {
+					ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 					this.pacienteDao.inserir(paciente);
+					ec.redirect(ec.getRequestContextPath() + "/paciente/pacientePesquisa.xhtml");
 				} else {
+					ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 					paciente.setIdPaciente(Integer.parseInt(idPaciente));
 					this.pacienteDao.alterar(paciente);
+					ec.redirect(ec.getRequestContextPath() + "/paciente/pacientePesquisa.xhtml");
 				}
 
 			}
@@ -146,8 +152,32 @@ public class PacienteBean {
 		this.listaPaciente = pacienteLista;
 	}
 
-	public String direcionaPagina() {
-		return "pacienteFormulario";
+	public void recuperaPaciente() throws NumberFormatException, SQLException {
+		if (idPaciente == null) {
+			return;
+		}
+
+		Paciente paciente = new Paciente();
+
+		paciente = this.pacienteDao.recuperaPaciente(Integer.parseInt(idPaciente));
+
+		nome = paciente.getNome();
+		telefone = paciente.getTelefone();
+		email = paciente.getEmail();
+		diagnostico = paciente.getDiagnostico();
+
+	}
+
+	public void excluiPaciente() throws NumberFormatException, SQLException, IOException {
+		this.pacienteDao.deletar(Integer.parseInt(idPaciente));
+
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect(ec.getRequestContextPath() + "/paciente/pacientePesquisa.xhtml");
+	}
+
+	public void direcionaPagina() throws IOException {
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.redirect(ec.getRequestContextPath() + "/paciente/pacienteFormulario.xhtml");
 	}
 
 	public String getaddTituloPagina() {
@@ -155,6 +185,16 @@ public class PacienteBean {
 			return "Cadastrar Paciente";
 		}
 		return "Alterar Paciente";
+	}
+
+	public void deixaNulo() {
+		setIdPaciente(null);
+		setNome(null);
+		setTelefone(null);
+		setEmail(null);
+		setDiagnostico(null);
+		setRegistro(null);
+		setValidacao(null);
 	}
 
 }

@@ -27,13 +27,13 @@ public class PacienteDao extends AbastractDao {
 	public void alterar(Paciente paciente) throws SQLException {
 		comandoSql = this.conexao.prepareStatement("UPDATE public.paciente SET nome='" + paciente.getNome()
 				+ "', telefone=" + paciente.getTelefone() + " , email='" + paciente.getEmail() + "', diagnostico= '"
-				+ paciente.getDiagnostico() + "' WHERE " + paciente.getIdPaciente() + ";");
+				+ paciente.getDiagnostico() + "' WHERE id_paciente = " + paciente.getIdPaciente() + ";");
 
 		comandoSql.execute();
 	}
 
 	public void deletar(int idPaciente) throws SQLException {
-		comandoSql = this.conexao.prepareStatement("DELETE FROM public.paciente WHERE " + idPaciente + ";");
+		comandoSql = this.conexao.prepareStatement("DELETE FROM public.paciente WHERE id_paciente = " + idPaciente + ";");
 
 		comandoSql.execute();
 	}
@@ -51,7 +51,7 @@ public class PacienteDao extends AbastractDao {
 
 			pacienteRetorno.setIdPaciente(resutladoSql.getLong("id_paciente"));
 			pacienteRetorno.setNome(resutladoSql.getString("nome"));
-			pacienteRetorno.setTelefone(resutladoSql.getInt("telefone"));
+			pacienteRetorno.setTelefone(resutladoSql.getString("telefone"));
 			pacienteRetorno.setEmail(resutladoSql.getString("email"));
 			pacienteRetorno.setDiagnostico(resutladoSql.getString("diagnostico"));
 			pacienteRetorno.setRegistro(resutladoSql.getDate("registro"));
@@ -85,7 +85,7 @@ public class PacienteDao extends AbastractDao {
 
 			pacienteRetorno.setIdPaciente(resultadoSql.getLong(1));
 			pacienteRetorno.setNome(resultadoSql.getString(2));
-			pacienteRetorno.setTelefone(resultadoSql.getInt(3));
+			pacienteRetorno.setTelefone(resultadoSql.getString(3));
 			pacienteRetorno.setEmail(resultadoSql.getString(4));
 			pacienteRetorno.setDiagnostico(resultadoSql.getString(5));
 			pacienteRetorno.setRegistro(resultadoSql.getDate(6));
