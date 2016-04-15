@@ -4,14 +4,14 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<h:outputScript library="jQuery" name="/js/jquery-1.11.1.js"
-		target="body" />
+
 </h:head>
 <h:body>
 	<ui:insert name="topo">
 		<ui:include src="/topo.xhtml" />
 	</ui:insert>
 	<f:event listener="#{pacienteBean.deixaNulo}" type="preRenderView" />
+
 	<h:form>
 		<p:panel header="Pesquisar Paciente">
 			<h:panelGrid columns="2" cellpadding="5">
@@ -30,7 +30,9 @@
 		</p:panel>
 
 	</h:form>
-	<p:dataTable var="paciente" value="#{pacienteBean.listaPaciente}">
+	<p:dataTable var="paciente" value="#{pacienteBean.listaPaciente}"
+		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+		paginator="true" >
 		<p:column headerText="Id do Paciente">
 			<h:outputText value="#{paciente.idPaciente}" />
 		</p:column>
@@ -50,7 +52,7 @@
 		</p:column>
 		<p:column headerText="Ações">
 			<p:commandButton value="Alterar" id="btnAlterar"
-				action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk">
+				action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk" align="righ">
 				<f:setPropertyActionListener value="#{paciente.idPaciente}"
 					target="#{pacienteBean.idPaciente}" />
 			</p:commandButton>

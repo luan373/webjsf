@@ -9,6 +9,7 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry exported="true" kind="lib" path="C:/DesenvolvimentoJava/Projetos/webjsf/webjsf/WebContent/WEB-INF/lib/primefaces-5.3.jar"/>
-	<classpathentry kind="lib" path="C:/DesenvolvimentoJava/Projetos/webjsf/webjsf/WebContent/WEB-INF/lib/javax.faces-2.2.9.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/DesenvolvimentoJava/Projetos/webjsf/webjsf/WebContent/WEB-INF/lib/javax.faces-2.2.9.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/DesenvolvimentoJava/Projetos/webjsf/webjsf/WebContent/WEB-INF/lib/iText-5.0.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
