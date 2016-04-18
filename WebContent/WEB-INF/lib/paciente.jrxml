@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="paciente" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e49c789-49cc-4f54-af27-1db6a06e28fc">
+	<property name="ireport.zoom" value="1.210000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="idPaciente" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="telefone" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="diagnostico" class="java.lang.String"/>
+	<field name="registro" class="java.lang.String"/>
+	<variable name="idPaciente_1" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{idPaciente}]]></variableExpression>
+	</variable>
+	<variable name="idPaciente_2" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{idPaciente}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="89" y="21" width="376" height="38" uuid="ffb259b6-6802-4b01-b7e6-f2fb9b8a6204"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Relação de paciente cadastrado]]></text>
+			</staticText>
+			<image>
+				<reportElement x="26" y="9" width="82" height="60" uuid="f6e51612-2c56-4c13-9bfe-96aff9dfb0c8"/>
+				<imageExpression><![CDATA["C:\\DesenvolvimentoJava\\Projetos\\webjsf\\webjsf\\WebContent\\WEB-INF\\lib\\marcacao-online.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="217" splitType="Stretch">
+			<textField>
+				<reportElement x="177" y="159" width="100" height="20" uuid="6e107247-3421-47a3-a301-fc0144d5d774"/>
+				<textFieldExpression><![CDATA[$F{registro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="42" width="100" height="20" uuid="79a8a943-a062-4517-ac81-68a5a1f79947"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="100" width="102" height="20" uuid="6949c5c0-2053-46f8-aec8-a4f58db7dba1"/>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="159" width="102" height="20" uuid="f78e48ab-502f-4eb1-ac13-e190f514bafb"/>
+				<text><![CDATA[Registro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="42" width="102" height="20" uuid="b86f018a-11e5-4922-9488-75aa57109a6d"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="177" y="13" width="100" height="20" uuid="06deea97-d6e4-45a7-a2f9-365b7129736b"/>
+				<textFieldExpression><![CDATA[$F{idPaciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="71" width="100" height="20" uuid="eefaecaa-91df-4b25-9c5d-6c328a0f2d9e"/>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="71" width="102" height="20" uuid="e4b42c26-2d90-40a0-8502-4f154a9f1ad7"/>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="129" width="102" height="20" uuid="d4c981cf-de4a-4397-9b73-c1b316c27d48"/>
+				<text><![CDATA[Diagnóstico]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="177" y="129" width="100" height="20" uuid="7a3f2424-1b90-4ae4-8f54-3ae5952c2b2f"/>
+				<textFieldExpression><![CDATA[$F{diagnostico}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="100" width="100" height="20" uuid="2d02fbfb-f38c-4c8c-8acd-86517ff8b9b2"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="13" width="102" height="20" uuid="2cfe8555-96b8-4e80-a8a2-1733d97ae842"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="6df2575f-04de-4e85-9739-4b3cc02158c0"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

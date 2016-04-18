@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="medico" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="304a4882-315a-431d-8e63-def89d252863">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="c3d208d7-adf5-4cab-b6e4-c5eac048a4da"/>
+	<field name="ID" class="java.lang.String"/>
+	<field name="Nome" class="java.lang.String"/>
+	<field name="CRM" class="java.lang.String"/>
+	<field name="Especialidade" class="java.lang.String"/>
+	<field name="E-mail" class="java.lang.String"/>
+	<field name="Telefone" class="java.lang.String"/>
+	<field name="id_medico" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="10" width="82" height="60" uuid="781ad4e6-ce67-4685-94f8-087ade0d6860"/>
+				<imageExpression><![CDATA["C:\\DesenvolvimentoJava\\Projetos\\webjsf\\webjsf\\WebContent\\WEB-INF\\lib\\marcacao-online.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="101" y="21" width="376" height="38" uuid="c0e90d22-26d8-4469-ba67-247552c34bb9"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Relação de Médico cadastrado]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="182" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="11" width="100" height="20" uuid="bad29cfd-b047-4975-b6c1-352d422b20b0"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="11" width="100" height="20" uuid="e43e3fa5-1e86-470c-8097-94d9dc520adb"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="39" width="100" height="20" uuid="5aadd524-1a0d-4573-8922-dcc35e753b35"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="39" width="100" height="20" uuid="af6d5e47-46a5-4e30-9814-0df93c647628"/>
+				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="67" width="100" height="20" uuid="88f26653-66d4-4913-a67e-49a67f15ef9a"/>
+				<text><![CDATA[CRM]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="67" width="100" height="20" uuid="af190f85-4816-4230-832d-b00839b6eb8f"/>
+				<textFieldExpression><![CDATA[$F{CRM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="95" width="100" height="20" uuid="a416409a-afe0-4cdf-8c08-31d04c64132a"/>
+				<text><![CDATA[Especialidade]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="95" width="100" height="20" uuid="bbe73332-3b2e-42f4-8b94-2b938ea1692d"/>
+				<textFieldExpression><![CDATA[$F{Especialidade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="123" width="100" height="20" uuid="ffdf916d-bfbd-4cf2-88f8-8c24f8ef4a49"/>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="123" width="100" height="20" uuid="0ea18636-6109-4111-ab44-7be41fcf5393"/>
+				<textFieldExpression><![CDATA[$F{E-mail}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="154" width="100" height="20" uuid="37ddc896-c8af-41b0-a09e-bb862d32dc86"/>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="154" width="100" height="20" uuid="4bf6dab1-bcff-4f56-8ad3-8635f1887982"/>
+				<textFieldExpression><![CDATA[$F{Telefone}
+]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="34">
+			<textField>
+				<reportElement x="455" y="5" width="100" height="20" uuid="225e2617-775a-42f7-b9dc-7c516ab6c9f1"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
