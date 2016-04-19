@@ -62,7 +62,7 @@
 
 		</p:column>
 		<p:column headerText="Porra">
-			<p:commandButton value="Cacete" id="btnExportar" action="#{exportBean.exportarPDF()}" icon="icon-export-1">
+			<p:commandButton  value="Cacete" id="btnExportar" action="#{exportBean.exportarPDF}" icon="icon-export-1">
 				<f:setPropertyActionListener value="#{paciente.idPaciente}"
 					target="#{exportBean.idPaciente}" />
 			</p:commandButton>			

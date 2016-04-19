@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import br.com.webjsf.model.entity.Paciente;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -32,8 +34,8 @@ public class Principal {
 		paciente.setTelefone("33736517");
 
 		lista.add(paciente);
-
-		JasperReport report = JasperCompileManager.compileReport("pdf/paciente.jrxml");
+		
+		JasperReport report = JasperCompileManager.compileReport("jasper//paciente.jrxml");
 
 		JasperPrint print = JasperFillManager.fillReport(report, null, new JRBeanCollectionDataSource(lista));
 
