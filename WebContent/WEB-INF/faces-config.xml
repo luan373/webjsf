@@ -8,4 +8,9 @@
 		<managed-bean-class>br.com.webjsf.controller.bean.PacienteBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>exportBean</managed-bean-name>
+		<managed-bean-class>br.com.webjsf.controller.bean.ExportBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
 </faces-config>

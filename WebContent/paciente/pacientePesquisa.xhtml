@@ -30,9 +30,10 @@
 		</p:panel>
 
 	</h:form>
-	<p:dataTable var="paciente" value="#{pacienteBean.listaPaciente}"
+	<p:dataTable id="tblPaciente" var="paciente"
+		value="#{pacienteBean.listaPaciente}"
 		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-		paginator="true" >
+		paginator="true">
 		<p:column headerText="Id do Paciente">
 			<h:outputText value="#{paciente.idPaciente}" />
 		</p:column>
@@ -52,10 +53,19 @@
 		</p:column>
 		<p:column headerText="Ações">
 			<p:commandButton value="Alterar" id="btnAlterar"
-				action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk" align="righ">
+				action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk"
+				align="right">
 				<f:setPropertyActionListener value="#{paciente.idPaciente}"
 					target="#{pacienteBean.idPaciente}" />
 			</p:commandButton>
+
+
+		</p:column>
+		<p:column headerText="Porra">
+			<p:commandButton value="Cacete" id="btnExportar" action="#{exportBean.exportarPDF()}" icon="icon-export-1">
+				<f:setPropertyActionListener value="#{paciente.idPaciente}"
+					target="#{exportBean.idPaciente}" />
+			</p:commandButton>			
 		</p:column>
 
 	</p:dataTable>

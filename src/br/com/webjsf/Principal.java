@@ -32,28 +32,14 @@ public class Principal {
 		paciente.setTelefone("33736517");
 
 		lista.add(paciente);
-		
-		Paciente paciente2 = new Paciente();
 
+		JasperReport report = JasperCompileManager.compileReport("pdf/paciente.jasper");
 
-
-		paciente2.setDiagnostico("Dodói111");
-		paciente2.setEmail("luan@gmail.com");
-		paciente2.setIdPaciente(2);
-		paciente2.setNome("Luan1111");
-		paciente2.setRegistro(date);
-		paciente2.setTelefone("33736517");
-		
-		lista.add(paciente2);
-
-		JasperReport report = JasperCompileManager.compileReport("pdf/paciente.jrxml");
-		
 		JasperPrint print = JasperFillManager.fillReport(report, null, new JRBeanCollectionDataSource(lista));
 
 		// exportacao do relatorio para outro formato, no caso PDF
 		JasperExportManager.exportReportToPdfFile(print, "pdf/RelatorioClientes.pdf");
 
 		System.out.println("Relatório gerado.");
-
 	}
 }
