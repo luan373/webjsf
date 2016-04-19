@@ -33,7 +33,7 @@ public class Principal {
 
 		lista.add(paciente);
 
-		JasperReport report = JasperCompileManager.compileReport("pdf/paciente.jasper");
+		JasperReport report = JasperCompileManager.compileReport("pdf/paciente.jrxml");
 
 		JasperPrint print = JasperFillManager.fillReport(report, null, new JRBeanCollectionDataSource(lista));
 

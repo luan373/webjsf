@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.210000000000002"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<field name="idPaciente" class="java.lang.String"/>
+	<field name="idPaciente" class="java.lang.Number"/>
 	<field name="nome" class="java.lang.String"/>
 	<field name="telefone" class="java.lang.String"/>
 	<field name="email" class="java.lang.String"/>
