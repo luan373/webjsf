@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
 import br.com.webjsf.model.entity.Paciente;
@@ -35,7 +36,11 @@ public class Principal {
 
 		lista.add(paciente);
 		
-		JasperReport report = JasperCompileManager.compileReport("jasper//paciente.jrxml");
+		
+		String caminho = "/jasper/paciente.jrxml";
+	   
+	    
+		JasperReport report = JasperCompileManager.compileReport("WebContent\\jasper\\paciente.jrxml");
 
 		JasperPrint print = JasperFillManager.fillReport(report, null, new JRBeanCollectionDataSource(lista));
 

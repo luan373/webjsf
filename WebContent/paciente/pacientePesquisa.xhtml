@@ -29,45 +29,43 @@
 			</h:panelGrid>
 		</p:panel>
 
+
+		<p:dataTable id="tblPaciente" var="paciente"
+			value="#{pacienteBean.listaPaciente}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+			paginator="true">
+			<p:column headerText="Id do Paciente">
+				<h:outputText value="#{paciente.idPaciente}" />
+			</p:column>
+			<p:column headerText="Nome do Paciente">
+				<h:outputText value="#{paciente.nome}" />
+			</p:column>
+			<p:column headerText="Telefone">
+				<h:outputText value="#{paciente.telefone}" />
+			</p:column>
+			<p:column headerText="E-mail">
+				<h:outputText value="#{paciente.email}" />
+			</p:column>
+			<p:column headerText="Registro">
+				<h:outputText value="#{paciente.registro}">
+					<f:convertDateTime pattern="dd-MM-yyyy" />
+				</h:outputText>
+			</p:column>
+			<p:column headerText="Ações">
+				<p:commandButton value="Alterar" id="btnAlterar"
+					action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk"
+					align="left">
+					<f:setPropertyActionListener value="#{paciente.idPaciente}"
+						target="#{pacienteBean.idPaciente}" />
+				</p:commandButton>
+				<p:commandButton value="Exportar PDF" id="btnExportar"
+					action="#{exportBean.exportarPDF(paciente.idPaciente, 'paciente')}" icon="icon-export-1"
+					ajax="false" align="right">
+					
+				</p:commandButton>
+			</p:column>
+
+		</p:dataTable>
 	</h:form>
-	<p:dataTable id="tblPaciente" var="paciente"
-		value="#{pacienteBean.listaPaciente}"
-		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-		paginator="true">
-		<p:column headerText="Id do Paciente">
-			<h:outputText value="#{paciente.idPaciente}" />
-		</p:column>
-		<p:column headerText="Nome do Paciente">
-			<h:outputText value="#{paciente.nome}" />
-		</p:column>
-		<p:column headerText="Telefone">
-			<h:outputText value="#{paciente.telefone}" />
-		</p:column>
-		<p:column headerText="E-mail">
-			<h:outputText value="#{paciente.email}" />
-		</p:column>
-		<p:column headerText="Registro">
-			<h:outputText value="#{paciente.registro}">
-				<f:convertDateTime pattern="dd-MM-yyyy" />
-			</h:outputText>
-		</p:column>
-		<p:column headerText="Ações">
-			<p:commandButton value="Alterar" id="btnAlterar"
-				action="#{pacienteBean.direcionaPagina}" icon="ui-icon-disk"
-				align="right">
-				<f:setPropertyActionListener value="#{paciente.idPaciente}"
-					target="#{pacienteBean.idPaciente}" />
-			</p:commandButton>
-
-
-		</p:column>
-		<p:column headerText="Porra">
-			<p:commandButton  value="Cacete" id="btnExportar" action="#{exportBean.exportarPDF}" icon="icon-export-1">
-				<f:setPropertyActionListener value="#{paciente.idPaciente}"
-					target="#{exportBean.idPaciente}" />
-			</p:commandButton>			
-		</p:column>
-
-	</p:dataTable>
 </h:body>
 </html>

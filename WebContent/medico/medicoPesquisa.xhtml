@@ -5,14 +5,14 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	
+
 </h:head>
 <h:body>
 	<ui:insert name="topo">
 		<ui:include src="/topo.xhtml" />
 	</ui:insert>
 	<f:event listener="#{medicoBean.deixaNulo}" type="preRenderView" />
-	
+
 	<h:form>
 		<p:panel header="Pesquisar Médico">
 			<h:panelGrid columns="2" cellpadding="5">
@@ -30,7 +30,7 @@
 			</h:panelGrid>
 		</p:panel>
 
-	</h:form>
+	
 	<p:dataTable var="medico" value="#{medicoBean.listaMedico}"
 		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 		paginator="true">
@@ -58,7 +58,12 @@
 				<f:setPropertyActionListener value="#{medico.idMedico}"
 					target="#{medicoBean.idMedico}" />
 			</p:commandButton>
+			<p:commandButton id="btnExportar"
+				action="#{exportBean.exportarPDF(medico.idMedico, 'medico')}" icon="fa-file-pdf-o" ajax="false"
+				align="right">		
+			</p:commandButton>
 		</p:column>
 	</p:dataTable>
+	</h:form>
 </h:body>
 </html>
