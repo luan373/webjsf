@@ -8,8 +8,8 @@ public class Consulta {
 	private long idPaciente;
 	private String status;
 	private Date dataConsulta;
-	private int horaInicioConsulta;
-	private int horaFimConsulta;
+	private Date horaInicioConsulta;
+	private Date horaFimConsulta;
 
 	public long getIdConsulta() {
 		return idConsulta;
@@ -51,19 +51,19 @@ public class Consulta {
 		this.dataConsulta = dataConsulta;
 	}
 
-	public int getHoraInicioConsulta() {
+	public Date getHoraInicioConsulta() {
 		return horaInicioConsulta;
 	}
 
-	public void setHoraInicioConsulta(int horaInicioConsulta) {
+	public void setHoraInicioConsulta(Date horaInicioConsulta) {
 		this.horaInicioConsulta = horaInicioConsulta;
 	}
 
-	public int getHoraFimConsulta() {
+	public Date getHoraFimConsulta() {
 		return horaFimConsulta;
 	}
 
-	public void setHoraFimConsulta(int horaFimConsulta) {
+	public void setHoraFimConsulta(Date horaFimConsulta) {
 		this.horaFimConsulta = horaFimConsulta;
 	}
 

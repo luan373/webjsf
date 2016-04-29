@@ -4,11 +4,16 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	
+
 </h:head>
 <h:body>
 	<ui:insert name="topo">
-		<ui:include src="topo.xhtml"/>
+		<ui:include src="topo.xhtml" />
 	</ui:insert>
+	<h:form>
+		<p:outputPanel>
+			<p:outputLabel value="#{principalBean.getNotificacao()}"></p:outputLabel>
+		</p:outputPanel>
+	</h:form>
 </h:body>
 </html>

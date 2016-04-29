@@ -8,6 +8,8 @@ import java.util.List;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
+import br.com.webjsf.model.dao.ConsultaDao;
+import br.com.webjsf.model.dao.PrincipalDao;
 import br.com.webjsf.model.entity.Paciente;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -19,34 +21,9 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class Principal {
 	public static void main(String[] args) throws SQLException, JRException {
-		System.out.println("Gerando Relatório...");
-
-		List<Paciente> lista = new ArrayList<Paciente>();
-
-		Paciente paciente = new Paciente();
-
-		Date date = new Date();
-
-		paciente.setDiagnostico("Dodói");
-		paciente.setEmail("luan@gmail.com");
-		paciente.setIdPaciente(2);
-		paciente.setNome("Luan");
-		paciente.setRegistro(date);
-		paciente.setTelefone("33736517");
-
-		lista.add(paciente);
+		PrincipalDao principalDao = new PrincipalDao();
 		
-		
-		String caminho = "/jasper/paciente.jrxml";
-	   
-	    
-		JasperReport report = JasperCompileManager.compileReport("WebContent\\jasper\\paciente.jrxml");
-
-		JasperPrint print = JasperFillManager.fillReport(report, null, new JRBeanCollectionDataSource(lista));
-
-		// exportacao do relatorio para outro formato, no caso PDF
-		JasperExportManager.exportReportToPdfFile(print, "pdf/RelatorioClientes.pdf");
-
-		System.out.println("Relatório gerado.");
+		int oi = principalDao.notificacao();
+		System.out.println(oi);
 	}
 }
